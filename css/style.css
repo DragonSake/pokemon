@@ -1,3 +1,6 @@
+/* Laad een mooi retro pixel-lettertype in via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 /* Basis Stijlen & Thema */
 * {
     margin: 0;
@@ -6,7 +9,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Algemene paginastijlen */
 /* Algemene paginastijlen */
 body {
     font-family: 'Arial', sans-serif;
@@ -50,10 +52,6 @@ body {
 #pokemon-image.guessed {
     filter: brightness(1);
 }
-
-/* De interface past zich ook procentueel aan */
-/* Laad een mooi retro pixel-lettertype in via Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .ui-container {
     position: absolute;
@@ -158,26 +156,74 @@ button:active {
 /* Het berichtvenster onderaan */
 #message {
     font-family: 'Press Start 2P', monospace;
-    margin-top: 6px;
+    margin-top: 12px;
     margin-bottom: 4px;
-    font-size: 8px;
+    font-size: 30px;
     line-height: 1.6;
-    text-transform: uppercase;
-    text-align: left;
+    text-align: center;
     padding-left: 6px;
+    color: #FFCB05;
+    text-shadow: 
+        -3px -3px 0 #3662AD,  
+         3px -3px 0 #3662AD,
+        -3px  3px 0 #3662AD,
+         3px  3px 0 #3662AD,
+         0px -3px 0 #3662AD,
+         0px  3px 0 #3662AD,
+        -3px  0px 0 #3662AD,
+         3px  0px 0 #3662AD;
+}
+
+@media (max-width: 700px) {
+    #message{
+        font-size: 25px;
+    }
+
+    .ui-container {
+        top: 105%;
+        height: 165px;
+    }
+}
+
+@media (max-width: 600px) {
+    #message{
+        font-size: 20px;
+    }
+
+    .ui-container {
+        top: 105%;
+        height: 165px;
+    }
 }
 
 /* Extra tweak voor hele kleine schermen zodat tekst leesbaar blijft */
 @media (max-width: 500px) {
-    .ui-container h2 {
-        font-size: 14px;
+    #message{
+        font-size: 15px;
     }
+
+    .ui-container {
+        top: 105%;
+        height: 145px;
+    }
+
+    .ui-container h2 {
+        font-size: 8px;
+    }
+
     button {
-        font-size: 10px;
+        font-size: 6px;
         padding: 6px;
     }
+
     input {
         padding: 6px;
-        font-size: 12px;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    #message{
+        font-size: 10px;
     }
 }
