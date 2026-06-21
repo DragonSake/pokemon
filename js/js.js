@@ -44,6 +44,7 @@ function nextPokemon() {
 }
 
 // 3. Controleer of de speler de juiste naam heeft ingevuld
+// 3. Controleer of de speler de juiste naam heeft ingevuld
 function checkGuess() {
     if (!currentPokemon) return;
 
@@ -52,13 +53,19 @@ function checkGuess() {
     const imgElement = document.getElementById('pokemon-image');
     const pokemonName = currentPokemon.name.toLowerCase();
 
+    // Reset de animatie-class (voor de pop-and-spin)
+    messageElement.classList.remove('pop-and-spin');
+    void messageElement.offsetWidth; // Trigger een reflow om de animatie te kunnen herhalen
+
     if (userGuess === pokemonName) {
-        messageElement.innerText = `It is ${currentPokemon.name.toUpperCase()}!`;
-        messageElement.style.color = "green";
-        imgElement.classList.add('guessed'); // Onthul de Pokémon (haalt zwart filter weg)
+        const formattedName = currentPokemon.name.charAt(0).toUpperCase() + currentPokemon.name.slice(1);
+        
+        messageElement.innerText = `It is ${formattedName}!`;
+        messageElement.style.color = "#FFCB05"; // HIER: Zet de kleur terug naar Geel bij een goed antwoord!
+        imgElement.classList.add('guessed'); 
     } else {
         messageElement.innerText = "Incorrect, try again ❌";
-        messageElement.style.color = "red";
+        messageElement.style.color = "red"; // Zet op rood bij een fout antwoord
     }
 }
 
